@@ -42,6 +42,9 @@ public class ProducerController {
         if(StringUtils.isBlank(myMessage.getBookFlowId())){
             return;
         }
+        if(StringUtils.isBlank(myMessage.getBookFlowUserId())){
+            return;
+        }
         String jsonStr = JSON.toJSONString(myMessage);
         String destination = "bookflow.queue";
         bookFlowProducer.sendHasLook(destination, jsonStr);
