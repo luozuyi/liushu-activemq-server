@@ -30,5 +30,21 @@ public class ProducerController {
         String destination = "bookflow.queue";
         bookFlowProducer.sendHasLook(destination, jsonStr);
     }
+
+    /**
+     * 接收消息
+     * @param myMessage
+     */
+    @PostMapping(value = "v2/auth/producers")
+    public void sendBookFlowLookV2(MyMessage myMessage, @CookieValue String liushuUserToken){
+        String userId = CommonUtil.getUserId(liushuUserToken);
+        myMessage.setUserId(userId);
+        if(StringUtils.isBlank(myMessage.getBookFlowId())){
+            return;
+        }
+        String jsonStr = JSON.toJSONString(myMessage);
+        String destination = "bookflow.queue";
+        bookFlowProducer.sendHasLook(destination, jsonStr);
+    }
 }
 

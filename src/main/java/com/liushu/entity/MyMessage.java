@@ -12,6 +12,10 @@ public class MyMessage implements Serializable{
      * 书流id
      */
     private String bookFlowId;
+    /**
+     * 流书用户的id
+     */
+    private String bookFlowUserId;
 
     public String getUserId() {
         return userId;
@@ -27,5 +31,13 @@ public class MyMessage implements Serializable{
 
     public void setBookFlowId(String bookFlowId) {
         this.bookFlowId = bookFlowId;
+    }
+
+    public String getBookFlowUserId() {
+        return bookFlowUserId;
+    }
+
+    public void setBookFlowUserId(String bookFlowUserId) {
+        this.bookFlowUserId = bookFlowUserId;
     }
 }
